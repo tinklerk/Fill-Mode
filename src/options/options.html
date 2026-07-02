@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fill Mode 설정</title>
+  <style>
+    body {
+      max-width: 560px;
+      margin: 40px auto;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      color: #222;
+    }
+    h1 { font-size: 20px; }
+    fieldset { margin-bottom: 16px; border: 1px solid #ddd; border-radius: 8px; }
+    label { display: block; margin: 6px 0; }
+    #status { color: #2e7d32; }
+  </style>
+</head>
+<body>
+  <h1>Fill Mode 설정</h1>
+
+  <fieldset>
+    <legend>Persistent zoom mode</legend>
+    <label><input type="radio" name="persistence" value="off" /> Off</label>
+    <label><input type="radio" name="persistence" value="session" checked /> Session</label>
+    <label><input type="radio" name="persistence" value="permanent" /> Permanent</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Zoom transition speed</legend>
+    <select id="transition-speed">
+      <option value="0">0ms</option>
+      <option value="150">150ms</option>
+      <option value="300" selected>300ms</option>
+      <option value="500">500ms</option>
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <legend>Monitor ratio source</legend>
+    <label><input type="radio" name="ratio-source" value="screen" checked /> Screen</label>
+    <label><input type="radio" name="ratio-source" value="window" /> Window</label>
+  </fieldset>
+
+  <p>
+    전역 단축키 변경:
+    <code>chrome://extensions/shortcuts</code> 에서 설정 (보안상 직접 링크 불가)
+  </p>
+
+  <button id="save">저장</button>
+  <span id="status"></span>
+
+  <script src="options.js"></script>
+</body>
+</html>

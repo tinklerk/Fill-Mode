@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fill Mode</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <h1>Fill Mode</h1>
+    <label class="toggle">
+      <input type="checkbox" id="enabled" />
+      <span>On</span>
+    </label>
+  </header>
+
+  <section class="info">
+    <div>Monitor: <span id="monitor-ratio">—</span></div>
+    <div>Video: <span id="video-ratio">Not detected</span></div>
+  </section>
+
+  <section class="stepper">
+    <button id="zoom-out">−</button>
+    <span id="scale-value">x1.00</span>
+    <button id="zoom-in">+</button>
+  </section>
+
+  <section class="presets">
+    <h2>가로</h2>
+    <div class="preset-row" data-orientation="landscape"></div>
+    <h2>세로</h2>
+    <div class="preset-row" data-orientation="portrait"></div>
+  </section>
+
+  <section class="custom">
+    <input type="text" id="custom-input" placeholder="W:H 또는 WxH (예: 9:19.5)" />
+    <button id="custom-apply">적용</button>
+  </section>
+
+  <footer>
+    <button id="reset">Reset</button>
+    <a href="#" id="open-options">설정</a>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

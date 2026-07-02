@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Fill Mode",
+  "version": "0.1.0",
+  "description": "Removes video black bars with custom & vertical (9:16) aspect ratio support.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/video-finder.js", "src/content/content.js"],
+      "css": ["src/content/content.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "src/options/options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "commands": {
+    "increase-zoom": {
+      "suggested_key": { "mac": "Command+Up", "default": "Ctrl+Up" },
+      "description": "Increase zoom (+)"
+    },
+    "decrease-zoom": {
+      "suggested_key": { "mac": "Command+Down", "default": "Ctrl+Down" },
+      "description": "Decrease zoom (-)"
+    },
+    "cycle-preset": { "description": "Cycle through ratio presets" },
+    "reset-zoom": { "description": "Reset zoom to 1.00" }
+  }
+}

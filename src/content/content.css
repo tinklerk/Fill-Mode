@@ -1,0 +1,9 @@
+video.fm-zoomed {
+  transform: scale(var(--fm-scale, 1)) translate(var(--fm-pan-x, 0%), var(--fm-pan-y, 0%));
+  transform-origin: center center;
+  transition: transform var(--fm-speed, 300ms) ease;
+}
+
+.fm-clip-container {
+  overflow: hidden !important;
+}
