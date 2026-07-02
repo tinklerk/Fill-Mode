@@ -99,5 +99,14 @@ document.getElementById('save').addEventListener('click', async () => {
   setTimeout(() => (status.textContent = ''), 1500);
 });
 
+// chrome:// URL은 일반 링크로 열리지 않아 tabs.create로 연다
+document.getElementById('open-shortcuts').addEventListener('click', (e) => {
+  e.preventDefault();
+  chrome.tabs.create({ url: 'chrome://extensions/shortcuts' });
+});
+
+document.getElementById('version').textContent =
+  `Fill Mode v${chrome.runtime.getManifest().version}`;
+
 localize();
 load();

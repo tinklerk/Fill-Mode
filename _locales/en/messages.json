@@ -78,7 +78,10 @@
     "message": "Window"
   },
   "shortcutsNote": {
-    "message": "You can change global shortcuts at chrome://extensions/shortcuts"
+    "message": "Change global shortcuts:"
+  },
+  "homepage": {
+    "message": "Homepage"
   },
   "pan": {
     "message": "Position"

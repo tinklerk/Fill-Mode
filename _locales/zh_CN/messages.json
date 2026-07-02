@@ -78,7 +78,10 @@
     "message": "窗口"
   },
   "shortcutsNote": {
-    "message": "可在 chrome://extensions/shortcuts 修改全局快捷键"
+    "message": "修改全局快捷键："
+  },
+  "homepage": {
+    "message": "主页"
   },
   "pan": {
     "message": "位置调整"

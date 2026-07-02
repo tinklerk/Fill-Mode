@@ -1,5 +1,8 @@
 # Fill Mode — 커스텀 비율 지원 비디오 줌 크롬 확장
 
+**소개 페이지**: <https://tinklerk.github.io/Fill-Mode/> ·
+**개인정보처리방침**: <https://tinklerk.github.io/Fill-Mode/privacy.html>
+
 Netflix, YouTube, Disney+, Amazon Prime 등의 비디오에서 레터박스(검은 여백)를 제거하기 위해
 비디오를 화면 비율에 맞게 확대/크롭하는 크롬 확장 프로그램.
 기존 [Zoom to Fill](https://chromewebstore.google.com/) 확장과 유사하지만 아래가 다르다.
@@ -86,7 +89,7 @@ fill_mode/
   "version": "2.0.0",
   "description": "__MSG_extDesc__",
   "default_locale": "en",
-  "permissions": ["storage", "activeTab"],
+  "permissions": ["storage"],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "src/background/service-worker.js"

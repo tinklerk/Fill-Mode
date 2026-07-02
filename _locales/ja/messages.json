@@ -78,7 +78,10 @@
     "message": "ウィンドウ"
   },
   "shortcutsNote": {
-    "message": "グローバルショートカットは chrome://extensions/shortcuts で変更できます"
+    "message": "グローバルショートカットの変更:"
+  },
+  "homepage": {
+    "message": "ホームページ"
   },
   "pan": {
     "message": "位置調整"

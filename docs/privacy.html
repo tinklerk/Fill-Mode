@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fill Mode — Privacy Policy / 개인정보처리방침</title>
+  <link rel="icon" type="image/png" href="icon128.png" />
+  <style>
+    :root {
+      --bg: #14141a;
+      --card: #1e1e27;
+      --border: #30303d;
+      --text: #f1f1f6;
+      --muted: #8d8da1;
+      --accent: #5b7cff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main { max-width: 720px; margin: 0 auto; padding: 24px 24px 64px; }
+
+    header { display: flex; align-items: center; gap: 10px; padding: 12px 0 32px; }
+    header img { width: 28px; height: 28px; border-radius: 8px; }
+    header a { color: var(--text); text-decoration: none; font-weight: 700; font-size: 17px; }
+
+    h1 { font-size: 28px; letter-spacing: -0.01em; }
+    h2 {
+      font-size: 20px;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .updated { color: var(--muted); font-size: 14px; }
+
+    ul { padding-left: 20px; }
+    li { margin: 10px 0; }
+    li::marker { color: var(--accent); }
+
+    code {
+      padding: 1px 6px;
+      border-radius: 5px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      font-size: 0.9em;
+    }
+
+    a { color: var(--accent); }
+
+    footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <img src="icon128.png" alt="Fill Mode icon" />
+      <a href="index.html">Fill Mode</a>
+    </header>
+
+    <h1>Privacy Policy / 개인정보처리방침</h1>
+    <p class="updated">Last updated: 2026-07-02</p>
+
+    <h2>English</h2>
+    <p>Fill Mode does <strong>not</strong> collect, store, transmit, or sell any personal data.</p>
+    <ul>
+      <li><strong>No data collection.</strong> The extension has no analytics, no tracking, and no
+        external server. It never reads page content other than locating <code>&lt;video&gt;</code>
+        elements to apply a visual CSS transform.</li>
+      <li><strong>Local settings only.</strong> Your preferences (aspect-ratio presets, zoom level,
+        keyboard shortcut mapping, options) are stored with the Chrome <code>storage</code> API:
+        <code>chrome.storage.sync</code> (synced to your own Google account by Chrome) and
+        <code>chrome.storage.session</code> (cleared when the browser closes). This data never
+        leaves your browser except through Chrome's own settings sync.</li>
+      <li><strong>No remote code.</strong> All code ships inside the extension package.</li>
+    </ul>
+    <p>If you have questions, please open an issue on the
+      <a href="https://github.com/tinklerk/Fill-Mode/issues">project repository</a>.</p>
+
+    <h2>한국어</h2>
+    <p>Fill Mode는 어떠한 개인정보도 <strong>수집·저장·전송·판매하지 않습니다</strong>.</p>
+    <ul>
+      <li><strong>데이터 수집 없음.</strong> 분석 도구, 트래킹, 외부 서버가 없습니다. 페이지에서
+        <code>&lt;video&gt;</code> 요소를 찾아 CSS 시각 변형을 적용하는 것 외에 페이지 내용을
+        읽지 않습니다.</li>
+      <li><strong>설정은 로컬에만 저장.</strong> 사용자 설정(비율 프리셋, 배율, 단축키 매핑,
+        옵션)은 Chrome <code>storage</code> API에 저장됩니다:
+        <code>chrome.storage.sync</code>(Chrome이 사용자 본인의 Google 계정으로 동기화)와
+        <code>chrome.storage.session</code>(브라우저 종료 시 삭제). 이 데이터는 Chrome 자체의
+        설정 동기화 외에는 브라우저 밖으로 나가지 않습니다.</li>
+      <li><strong>원격 코드 없음.</strong> 모든 코드는 확장 프로그램 패키지 안에 포함되어
+        있습니다.</li>
+    </ul>
+    <p>문의는 <a href="https://github.com/tinklerk/Fill-Mode/issues">프로젝트 저장소의 이슈</a>로
+      남겨주세요.</p>
+
+    <footer>© 2026 Fill Mode · <a href="index.html">Home</a></footer>
+  </main>
+</body>
+</html>
