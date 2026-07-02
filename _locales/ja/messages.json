@@ -80,6 +80,27 @@
   "shortcutsNote": {
     "message": "グローバルショートカットは chrome://extensions/shortcuts で変更できます"
   },
+  "pan": {
+    "message": "位置調整"
+  },
+  "panReset": {
+    "message": "位置をリセット"
+  },
+  "shortcuts": {
+    "message": "ショートカット"
+  },
+  "scToggle": {
+    "message": "オン／オフ"
+  },
+  "recordKey": {
+    "message": "キーを入力…"
+  },
+  "resetDefaults": {
+    "message": "デフォルト"
+  },
+  "shortcutsFullscreenNote": {
+    "message": "ページ内ショートカットは全画面表示でも動作します"
+  },
   "save": {
     "message": "保存"
   },

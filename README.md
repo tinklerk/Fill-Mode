@@ -209,7 +209,7 @@ chrome.storage.local  → persistence='permanent'일 때 도메인별 마지막 
 ### 4.5 단축키
 
 - **커맨드 단축키(전역)**: manifest `commands` 4개 — increase/decrease/cycle/reset. `chrome.commands.onCommand` → 활성 탭 content script로 `chrome.tabs.sendMessage`
-- **단일 키 단축키(페이지 내)**: content script `keydown` 리스너. input/textarea/contentEditable 포커스 시 무시. 기본 매핑 예: `z` 토글, `[` `]` pan 이동, `1~5` 프리셋. 옵션 페이지에서 remap 가능
+- **단일 키 단축키(페이지 내)**: content script `keydown` 리스너(capture). input/textarea/contentEditable 포커스 시 무시, 페이지에 video가 있을 때만 동작. 전체화면에서도 동작하며 조작 결과는 화면 상단 HUD 토스트로 표시. 기본 매핑: `z` 토글, `x` 프리셋 순환, `[` `]` 배율 ∓0.05, `Shift+화살표` 위치 이동(1%), `Shift+X` 위치 초기화. 옵션 페이지에서 변경 가능(`settings.keymap`)
 
 ---
 

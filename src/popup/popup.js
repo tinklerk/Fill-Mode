@@ -14,6 +14,9 @@ function localize() {
   document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
     el.placeholder = t(el.dataset.i18nPlaceholder);
   });
+  document.querySelectorAll('[data-i18n-title]').forEach((el) => {
+    el.title = t(el.dataset.i18nTitle);
+  });
   document.getElementById('enable-label').title = t('enable');
 }
 
@@ -46,9 +49,48 @@ async function patchState(patch) {
   await refresh();
 }
 
+// 아래 프리셋 선택지와 비교하기 쉽도록 비율을 W:H 형식으로 표시
+const RATIO_LABELS = [
+  ['32:9', 32 / 9],
+  ['21:9', 21 / 9],
+  ['18:9', 18 / 9],
+  ['16:9', 16 / 9],
+  ['16:10', 16 / 10],
+  ['4:3', 4 / 3],
+  ['1:1', 1],
+  ['3:4', 3 / 4],
+  ['10:16', 10 / 16],
+  ['9:16', 9 / 16],
+  ['9:18', 9 / 18],
+  ['9:21', 9 / 21],
+];
+
+function gcd(a, b) {
+  return b ? gcd(b, a % b) : a;
+}
+
+function ratioLabel(width, height) {
+  const g = gcd(width, height);
+  const rw = width / g;
+  const rh = height / g;
+  if (rw <= 32 && rh <= 32) return `${rw}:${rh}`;
+  // 약분이 안 되는 해상도(1366x768 등)는 가장 가까운 통용 비율로 근사
+  const ratio = width / height;
+  let best = null;
+  let bestDiff = Infinity;
+  for (const [label, value] of RATIO_LABELS) {
+    const diff = Math.abs(ratio - value) / value;
+    if (diff < bestDiff) {
+      bestDiff = diff;
+      best = label;
+    }
+  }
+  return bestDiff < 0.03 ? `≈${best}` : ratio.toFixed(3);
+}
+
 function formatSize(width, height) {
   if (!width || !height) return t('notDetected');
-  return `${width}x${height} (${(width / height).toFixed(3)})`;
+  return `${width}x${height} (${ratioLabel(width, height)})`;
 }
 
 async function refresh() {
@@ -65,6 +107,11 @@ async function refresh() {
   const scale =
     currentState?.mode === 'manual' ? currentState.manualScale : res?.appliedScale ?? 1;
   document.getElementById('scale-value').textContent = `x${scale.toFixed(2)}`;
+
+  panLocal.panX = clampPan(currentState?.panX ?? 0);
+  panLocal.panY = clampPan(currentState?.panY ?? 0);
+  document.getElementById('pan-x').value = panLocal.panX;
+  document.getElementById('pan-y').value = panLocal.panY;
 
   document.querySelectorAll('.preset-row button').forEach((btn) => {
     btn.classList.toggle(
@@ -118,6 +165,49 @@ document.getElementById('custom-apply').addEventListener('click', () => {
   patchState({ enabled: true, mode: 'custom', customRatio: parsed });
 });
 
+const clampPan = (v) => Math.min(50, Math.max(-50, Number(v) || 0));
+
+// D-pad 이동 중 refresh()가 돌아오기 전에도 다음 스텝이 이어지도록 로컬 미러를 둔다
+const panLocal = { panX: 0, panY: 0 };
+
+// 짧게 누르면 1%, 길게 누르면 연속 이동
+document.querySelectorAll('.pan-step').forEach((btn) => {
+  const axis = btn.dataset.axis;
+  const dir = Number(btn.dataset.dir);
+  const step = () => {
+    panLocal[axis] = clampPan(panLocal[axis] + dir);
+    patchState({ [axis]: panLocal[axis] });
+  };
+  let delay = null;
+  let repeat = null;
+  const stop = () => {
+    clearTimeout(delay);
+    clearInterval(repeat);
+  };
+  btn.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    step();
+    delay = setTimeout(() => {
+      repeat = setInterval(step, 90);
+    }, 350);
+  });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach((ev) =>
+    btn.addEventListener(ev, stop)
+  );
+});
+
+document.getElementById('pan-x').addEventListener('change', (e) => {
+  patchState({ panX: clampPan(e.target.value) });
+});
+
+document.getElementById('pan-y').addEventListener('change', (e) => {
+  patchState({ panY: clampPan(e.target.value) });
+});
+
+document.getElementById('pan-reset').addEventListener('click', () => {
+  patchState({ panX: 0, panY: 0 });
+});
+
 document.getElementById('reset').addEventListener('click', () => {
   patchState({ enabled: false, mode: 'preset', manualScale: 1, panX: 0, panY: 0 });
 });
@@ -127,6 +217,20 @@ document.getElementById('open-options').addEventListener('click', (e) => {
   chrome.runtime.openOptionsPage();
 });
 
+// 단축키 안내 — 설정 페이지에서 변경한 키맵을 그대로 표시
+const DEFAULT_KEYMAP = { toggle: 'z', cycle: 'x', zoomOut: '[', zoomIn: ']', panReset: 'x' };
+
+async function renderShortcuts() {
+  const { settings } = await chrome.storage.sync.get('settings');
+  const keymap = { ...DEFAULT_KEYMAP, ...settings?.keymap };
+  document.querySelectorAll('kbd[data-key]').forEach((el) => {
+    const key = keymap[el.dataset.key];
+    const label = key.length === 1 ? key.toUpperCase() : key;
+    el.textContent = el.dataset.key === 'panReset' ? `Shift + ${label}` : label;
+  });
+}
+
 localize();
 renderPresets();
+renderShortcuts();
 refresh();

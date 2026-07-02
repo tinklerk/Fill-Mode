@@ -44,6 +44,38 @@
       </div>
     </section>
 
+    <section class="card">
+      <div class="card-head">
+        <h2 data-i18n="shortcuts"></h2>
+        <button id="keys-default" class="ghost" data-i18n="resetDefaults"></button>
+      </div>
+      <div class="shortcut-row">
+        <span data-i18n="scToggle"></span>
+        <input class="key-input" data-action="toggle" readonly />
+      </div>
+      <div class="shortcut-row">
+        <span data-i18n="cmdCyclePreset"></span>
+        <input class="key-input" data-action="cycle" readonly />
+      </div>
+      <div class="shortcut-row">
+        <span data-i18n="cmdDecreaseZoom"></span>
+        <input class="key-input" data-action="zoomOut" readonly />
+      </div>
+      <div class="shortcut-row">
+        <span data-i18n="cmdIncreaseZoom"></span>
+        <input class="key-input" data-action="zoomIn" readonly />
+      </div>
+      <div class="shortcut-row">
+        <span data-i18n="panReset"></span>
+        <input class="key-input" data-action="panReset" readonly />
+      </div>
+      <div class="shortcut-row">
+        <span data-i18n="pan"></span>
+        <kbd>Shift + ← ↑ ↓ →</kbd>
+      </div>
+      <p class="note in-card" data-i18n="shortcutsFullscreenNote"></p>
+    </section>
+
     <p class="note" data-i18n="shortcutsNote"></p>
 
     <div class="actions">

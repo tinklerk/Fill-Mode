@@ -46,6 +46,77 @@
     <button id="custom-apply" class="primary" data-i18n="apply"></button>
   </section>
 
+  <section class="card pan">
+    <h2 data-i18n="pan"></h2>
+    <div class="pan-body">
+      <div class="dpad">
+        <button class="dpad-btn dpad-up pan-step" data-axis="panY" data-dir="-1" aria-label="↑">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
+        </button>
+        <button class="dpad-btn dpad-left pan-step" data-axis="panX" data-dir="-1" aria-label="←">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <button class="dpad-btn dpad-center" id="pan-reset" data-i18n-title="panReset" aria-label="reset">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"
+            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="1 4 1 10 7 10"/>
+            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+          </svg>
+        </button>
+        <button class="dpad-btn dpad-right pan-step" data-axis="panX" data-dir="1" aria-label="→">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <button class="dpad-btn dpad-down pan-step" data-axis="panY" data-dir="1" aria-label="↓">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="pan-values">
+        <label>
+          <span class="pan-axis">X</span>
+          <input type="number" id="pan-x" class="pan-input" min="-50" max="50" step="1" value="0" />
+          <span class="pan-unit">%</span>
+        </label>
+        <label>
+          <span class="pan-axis">Y</span>
+          <input type="number" id="pan-y" class="pan-input" min="-50" max="50" step="1" value="0" />
+          <span class="pan-unit">%</span>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <details class="card shortcuts">
+    <summary data-i18n="shortcuts"></summary>
+    <div class="shortcut-row">
+      <span data-i18n="scToggle"></span>
+      <kbd data-key="toggle"></kbd>
+    </div>
+    <div class="shortcut-row">
+      <span data-i18n="cmdCyclePreset"></span>
+      <kbd data-key="cycle"></kbd>
+    </div>
+    <div class="shortcut-row">
+      <span data-i18n="cmdDecreaseZoom"></span>
+      <kbd data-key="zoomOut"></kbd>
+    </div>
+    <div class="shortcut-row">
+      <span data-i18n="cmdIncreaseZoom"></span>
+      <kbd data-key="zoomIn"></kbd>
+    </div>
+    <div class="shortcut-row">
+      <span data-i18n="pan"></span>
+      <kbd>Shift + ← ↑ ↓ →</kbd>
+    </div>
+    <div class="shortcut-row">
+      <span data-i18n="panReset"></span>
+      <kbd data-key="panReset"></kbd>
+    </div>
+  </details>
+
   <footer>
     <button id="reset" class="ghost" data-i18n="reset"></button>
     <a href="#" id="open-options">

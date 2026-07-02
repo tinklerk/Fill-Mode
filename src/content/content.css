@@ -7,3 +7,25 @@ video.fm-zoomed {
 .fm-clip-container {
   overflow: hidden !important;
 }
+
+.fm-hud {
+  position: fixed;
+  left: 50%;
+  top: 8%;
+  transform: translateX(-50%);
+  z-index: 2147483647;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(20, 20, 26, 0.85);
+  color: #fff;
+  font: 600 13px/1.4 system-ui, -apple-system, sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.fm-hud-visible {
+  opacity: 1;
+}

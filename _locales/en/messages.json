@@ -80,6 +80,27 @@
   "shortcutsNote": {
     "message": "You can change global shortcuts at chrome://extensions/shortcuts"
   },
+  "pan": {
+    "message": "Position"
+  },
+  "panReset": {
+    "message": "Reset position"
+  },
+  "shortcuts": {
+    "message": "Shortcuts"
+  },
+  "scToggle": {
+    "message": "Toggle on/off"
+  },
+  "recordKey": {
+    "message": "Press a key…"
+  },
+  "resetDefaults": {
+    "message": "Defaults"
+  },
+  "shortcutsFullscreenNote": {
+    "message": "In-page shortcuts also work in fullscreen"
+  },
   "save": {
     "message": "Save"
   },

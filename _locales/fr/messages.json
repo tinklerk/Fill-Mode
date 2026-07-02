@@ -80,6 +80,27 @@
   "shortcutsNote": {
     "message": "Vous pouvez modifier les raccourcis globaux dans chrome://extensions/shortcuts"
   },
+  "pan": {
+    "message": "Position"
+  },
+  "panReset": {
+    "message": "Réinitialiser la position"
+  },
+  "shortcuts": {
+    "message": "Raccourcis"
+  },
+  "scToggle": {
+    "message": "Activer/désactiver"
+  },
+  "recordKey": {
+    "message": "Appuyez sur une touche…"
+  },
+  "resetDefaults": {
+    "message": "Par défaut"
+  },
+  "shortcutsFullscreenNote": {
+    "message": "Les raccourcis dans la page fonctionnent aussi en plein écran"
+  },
   "save": {
     "message": "Enregistrer"
   },

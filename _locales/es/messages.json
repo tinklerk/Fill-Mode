@@ -80,6 +80,27 @@
   "shortcutsNote": {
     "message": "Puedes cambiar los atajos globales en chrome://extensions/shortcuts"
   },
+  "pan": {
+    "message": "Posición"
+  },
+  "panReset": {
+    "message": "Restablecer posición"
+  },
+  "shortcuts": {
+    "message": "Atajos"
+  },
+  "scToggle": {
+    "message": "Activar/desactivar"
+  },
+  "recordKey": {
+    "message": "Pulsa una tecla…"
+  },
+  "resetDefaults": {
+    "message": "Predeterminados"
+  },
+  "shortcutsFullscreenNote": {
+    "message": "Los atajos en la página también funcionan en pantalla completa"
+  },
   "save": {
     "message": "Guardar"
   },

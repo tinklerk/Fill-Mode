@@ -27,6 +27,32 @@ const fmState = {
 
 let fmVideo = null;
 
+// 이동 위치는 사이트(hostname)별로 세션에 보존 — 다음 비디오·새로고침에도 유지
+const FM_PAN_KEY = `fmPan:${location.hostname}`;
+
+function fmClampPan(v) {
+  return Math.min(50, Math.max(-50, Number(v) || 0));
+}
+
+function fmSavePan() {
+  chrome.storage.session
+    .set({ [FM_PAN_KEY]: { panX: fmState.panX, panY: fmState.panY } })
+    .catch(() => {});
+}
+
+async function fmRestorePan() {
+  try {
+    const data = await chrome.storage.session.get(FM_PAN_KEY);
+    if (data[FM_PAN_KEY]) {
+      fmState.panX = fmClampPan(data[FM_PAN_KEY].panX);
+      fmState.panY = fmClampPan(data[FM_PAN_KEY].panY);
+      if (fmState.enabled) fmApply();
+    }
+  } catch {
+    // storage.session 접근이 막히면 페이지 수명 동안만 유지
+  }
+}
+
 function fmTargetRatio() {
   if (fmState.mode === 'custom' && fmState.customRatio) return fmState.customRatio.ratio;
   const preset = FM_BUILTIN_PRESETS.find((p) => p.id === fmState.presetId);
@@ -97,6 +123,7 @@ function fmReset() {
   fmState.manualScale = 1.0;
   fmState.panX = 0;
   fmState.panY = 0;
+  fmSavePan();
   fmApply();
 }
 
@@ -104,18 +131,127 @@ function fmHandleCommand(command) {
   switch (command) {
     case 'increase-zoom':
       fmStepManualScale(+0.05);
+      fmShowHud(`×${fmState.manualScale.toFixed(2)}`);
       break;
     case 'decrease-zoom':
       fmStepManualScale(-0.05);
+      fmShowHud(`×${fmState.manualScale.toFixed(2)}`);
       break;
     case 'cycle-preset':
       fmCyclePreset();
+      fmShowHud(fmState.presetId);
       break;
     case 'reset-zoom':
       fmReset();
+      fmShowHud('Fill Mode OFF');
       break;
   }
 }
+
+// ── HUD: 전체화면에서도 보이는 상태 토스트 ──
+let fmHudEl = null;
+let fmHudTimer = null;
+
+function fmShowHud(text) {
+  // 전체화면에서는 fullscreenElement 내부에 있어야 보인다
+  const host = document.fullscreenElement || document.body;
+  if (!fmHudEl) {
+    fmHudEl = document.createElement('div');
+    fmHudEl.className = 'fm-hud';
+  }
+  if (fmHudEl.parentElement !== host) host.appendChild(fmHudEl);
+  fmHudEl.textContent = text;
+  fmHudEl.classList.add('fm-hud-visible');
+  clearTimeout(fmHudTimer);
+  fmHudTimer = setTimeout(() => fmHudEl.classList.remove('fm-hud-visible'), 1400);
+}
+
+// ── 페이지 내 단축키 (전체화면에서도 동작) ──
+// 기본: z 토글, x 프리셋 순환, [ ] 배율 ∓0.05, Shift+화살표 위치 이동, Shift+X 위치 초기화
+// 옵션 페이지에서 변경 가능 (settings.keymap)
+const FM_DEFAULT_KEYMAP = { toggle: 'z', cycle: 'x', zoomOut: '[', zoomIn: ']', panReset: 'x' };
+let fmKeymap = { ...FM_DEFAULT_KEYMAP };
+
+async function fmLoadKeymap() {
+  try {
+    const { settings } = await chrome.storage.sync.get('settings');
+    if (settings?.keymap) fmKeymap = { ...FM_DEFAULT_KEYMAP, ...settings.keymap };
+  } catch {
+    // 기본 키맵 유지
+  }
+}
+
+chrome.storage.onChanged.addListener((changes, area) => {
+  if (area === 'sync' && changes.settings?.newValue) {
+    fmKeymap = { ...FM_DEFAULT_KEYMAP, ...changes.settings.newValue.keymap };
+  }
+});
+
+function fmIsTypingTarget(el) {
+  if (!el) return false;
+  const tag = el.tagName;
+  return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || el.isContentEditable;
+}
+
+document.addEventListener(
+  'keydown',
+  (e) => {
+    if (fmIsTypingTarget(e.target)) return;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (!document.querySelector('video')) return;
+
+    let handled = false;
+    if (e.shiftKey) {
+      if (!fmState.enabled) return;
+      const pan = {
+        ArrowLeft: [-1, 0],
+        ArrowRight: [1, 0],
+        ArrowUp: [0, -1],
+        ArrowDown: [0, 1],
+      }[e.key];
+      if (pan) {
+        fmState.panX = fmClampPan(fmState.panX + pan[0]);
+        fmState.panY = fmClampPan(fmState.panY + pan[1]);
+        fmSavePan();
+        fmApply();
+        fmShowHud(`X ${fmState.panX}% · Y ${fmState.panY}%`);
+        handled = true;
+      } else if (e.key.toLowerCase() === fmKeymap.panReset) {
+        fmState.panX = 0;
+        fmState.panY = 0;
+        fmSavePan();
+        fmApply();
+        fmShowHud('X 0% · Y 0%');
+        handled = true;
+      }
+    } else {
+      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      if (key === fmKeymap.toggle) {
+        fmState.enabled = !fmState.enabled;
+        fmApply();
+        fmShowHud(`Fill Mode ${fmState.enabled ? 'ON' : 'OFF'}`);
+        handled = true;
+      } else if (key === fmKeymap.cycle) {
+        fmCyclePreset();
+        fmShowHud(fmState.presetId);
+        handled = true;
+      } else if (key === fmKeymap.zoomOut) {
+        fmStepManualScale(-0.05);
+        fmShowHud(`×${fmState.manualScale.toFixed(2)}`);
+        handled = true;
+      } else if (key === fmKeymap.zoomIn) {
+        fmStepManualScale(+0.05);
+        fmShowHud(`×${fmState.manualScale.toFixed(2)}`);
+        handled = true;
+      }
+    }
+    if (handled) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  },
+  true // 사이트 자체 핸들러(YouTube 등)보다 먼저 받도록 capture 사용
+);
 
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   switch (message.type) {
@@ -134,6 +270,9 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
     }
     case 'setState':
       Object.assign(fmState, message.patch);
+      fmState.panX = fmClampPan(fmState.panX);
+      fmState.panY = fmClampPan(fmState.panY);
+      if ('panX' in message.patch || 'panY' in message.patch) fmSavePan();
       fmApply();
       sendResponse({ ok: true });
       return;
@@ -144,3 +283,5 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
 window.addEventListener('resize', () => fmState.enabled && fmApply());
 document.addEventListener('fullscreenchange', () => fmState.enabled && fmApply());
 fmObserveVideoChanges(() => fmState.enabled && fmApply());
+fmRestorePan();
+fmLoadKeymap();

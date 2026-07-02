@@ -80,6 +80,27 @@
   "shortcutsNote": {
     "message": "可在 chrome://extensions/shortcuts 修改全局快捷键"
   },
+  "pan": {
+    "message": "位置调整"
+  },
+  "panReset": {
+    "message": "重置位置"
+  },
+  "shortcuts": {
+    "message": "快捷键"
+  },
+  "scToggle": {
+    "message": "开/关"
+  },
+  "recordKey": {
+    "message": "请按键…"
+  },
+  "resetDefaults": {
+    "message": "默认值"
+  },
+  "shortcutsFullscreenNote": {
+    "message": "页内快捷键在全屏时也可用"
+  },
   "save": {
     "message": "保存"
   },

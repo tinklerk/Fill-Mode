@@ -251,6 +251,163 @@ button.primary:hover {
   filter: brightness(1.1);
 }
 
+/* ── pan (D-pad) ────────────────────────── */
+
+.pan {
+  margin-top: 14px;
+}
+
+.pan h2 {
+  margin: 0 0 10px;
+}
+
+.pan-body {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.dpad {
+  display: grid;
+  grid-template-areas:
+    ". up ."
+    "left center right"
+    ". down .";
+  grid-auto-columns: 30px;
+  grid-auto-rows: 30px;
+  gap: 4px;
+}
+
+.dpad-up { grid-area: up; }
+.dpad-left { grid-area: left; }
+.dpad-center { grid-area: center; }
+.dpad-right { grid-area: right; }
+.dpad-down { grid-area: down; }
+
+.dpad-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card-2);
+  color: var(--muted);
+  cursor: pointer;
+  touch-action: none;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.dpad-btn:hover {
+  color: var(--text);
+  background: #2f2f3a;
+}
+
+.dpad-btn:active {
+  transform: scale(0.9);
+  background: var(--accent-grad);
+  border-color: transparent;
+  color: #fff;
+}
+
+.dpad-center {
+  border-radius: 50%;
+}
+
+.pan-values {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pan-values label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.pan-axis {
+  width: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pan-input {
+  width: 64px;
+  padding: 5px 8px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-2);
+  color: var(--text);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.pan-input:focus {
+  border-color: var(--accent);
+}
+
+.pan-input::-webkit-outer-spin-button,
+.pan-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.pan-unit {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ── shortcuts ──────────────────────────── */
+
+.shortcuts {
+  margin-top: 14px;
+}
+
+.shortcuts summary {
+  cursor: pointer;
+  user-select: none;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.shortcuts[open] summary {
+  margin-bottom: 6px;
+}
+
+.shortcut-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.shortcut-row:last-child {
+  border-bottom: none;
+  padding-bottom: 2px;
+}
+
+kbd {
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--card-2);
+  color: var(--muted);
+  font-size: 11px;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
 /* ── footer ─────────────────────────────── */
 
 footer {
