@@ -83,7 +83,7 @@ fill_mode/
 {
   "manifest_version": 3,
   "name": "__MSG_extName__",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "__MSG_extDesc__",
   "default_locale": "en",
   "permissions": ["storage", "activeTab"],
