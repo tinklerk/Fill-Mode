@@ -76,12 +76,21 @@
       <p class="note in-card" data-i18n="shortcutsFullscreenNote"></p>
     </section>
 
-    <p class="note" data-i18n="shortcutsNote"></p>
+    <p class="note">
+      <span data-i18n="shortcutsNote"></span>
+      <a href="#" id="open-shortcuts">chrome://extensions/shortcuts</a>
+    </p>
 
     <div class="actions">
       <button id="save" class="primary" data-i18n="save"></button>
       <span id="status" role="status"></span>
     </div>
+
+    <footer class="page-foot">
+      <span id="version"></span> ·
+      <a href="https://tinklerk.github.io/Fill-Mode/" target="_blank" rel="noopener"
+        data-i18n="homepage"></a>
+    </footer>
   </main>
 
   <script src="../common/keys.js"></script>

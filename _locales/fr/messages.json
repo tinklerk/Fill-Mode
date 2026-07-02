@@ -78,7 +78,10 @@
     "message": "Fenêtre"
   },
   "shortcutsNote": {
-    "message": "Vous pouvez modifier les raccourcis globaux dans chrome://extensions/shortcuts"
+    "message": "Modifier les raccourcis globaux :"
+  },
+  "homepage": {
+    "message": "Site web"
   },
   "pan": {
     "message": "Position"

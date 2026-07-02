@@ -78,7 +78,10 @@
     "message": "창"
   },
   "shortcutsNote": {
-    "message": "전역 단축키는 chrome://extensions/shortcuts 에서 변경할 수 있습니다"
+    "message": "전역 단축키 변경:"
+  },
+  "homepage": {
+    "message": "홈페이지"
   },
   "pan": {
     "message": "위치 이동"

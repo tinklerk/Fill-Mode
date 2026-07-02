@@ -227,3 +227,22 @@ button.primary:hover {
   font-size: 13px;
   color: #34a853;
 }
+
+.note a,
+.page-foot a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.note a:hover,
+.page-foot a:hover {
+  text-decoration: underline;
+}
+
+.page-foot {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12.5px;
+}
