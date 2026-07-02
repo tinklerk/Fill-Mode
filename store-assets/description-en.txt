@@ -1,0 +1,40 @@
+Fill Mode removes letterboxing — the black bars above, below, or beside a video — by zooming and cropping the video to fill your screen whenever the video's aspect ratio doesn't match your display.
+
+Unlike similar extensions, Fill Mode has first-class support for vertical (pivot) monitors and fully custom aspect ratios. It shines when you watch 16:9 video on a portrait monitor, or regular video on an ultrawide.
+
+■ Features
+
+• 10 ratio presets — landscape (16:10, 16:9, 18:9, 21:9, 32:9) and portrait (9:16, 9:18, 9:21, 10:16, 3:4)
+• Custom ratios — type any ratio like "9:19.5" or any resolution like "2160x3840"
+• Manual zoom — fine-tune from 0.5x to 4.0x in 0.05 steps
+• Pan control — move the cropped area with a D-pad or numeric input. The position is remembered per site, persists across videos, and can be reset independently
+• Fullscreen support — control everything with in-page keyboard shortcuts even in fullscreen, with instant feedback via an on-screen HUD
+• Remappable shortcuts — change every key from the options page; works regardless of your keyboard's IME language
+• 6 languages — English, Korean, Japanese, Simplified Chinese, Spanish, and French
+
+■ How to use
+
+1. On a page with a video, click the Fill Mode icon in the toolbar
+2. The popup shows your monitor's and the video's resolution and aspect ratio
+3. Click the preset that matches your monitor — the black bars disappear
+4. Optionally fine-tune the zoom with +/− and shift the visible area with the D-pad
+
+■ Default shortcuts (in-page, also work in fullscreen)
+
+• Z — toggle on/off
+• X — cycle ratio presets
+• [ / ] — decrease/increase zoom
+• Shift + arrows — pan
+• Shift + X — reset position
+
+■ Supported sites
+
+YouTube, Netflix, and Disney+ are handled with player-specific tuning; on every other site the extension automatically finds the largest video on the page. Players inside iframes are supported too.
+
+■ Privacy
+
+Fill Mode collects and transmits no data whatsoever. There are no analytics and no external servers; your settings live only in the browser's storage (chrome.storage). Access to all sites is required solely to locate the video element and apply a CSS transform on whatever video site you visit — the extension never reads or collects page content.
+
+Privacy policy: https://tinklerk.github.io/Fill-Mode/privacy.html
+Homepage: https://tinklerk.github.io/Fill-Mode/
+Source code: https://github.com/tinklerk/Fill-Mode
