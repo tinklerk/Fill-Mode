@@ -5,6 +5,18 @@ const PORTRAIT = ['9:16', '9:18', '9:21', '10:16', '3:4'];
 
 let currentState = null;
 
+const t = (key) => chrome.i18n.getMessage(key);
+
+function localize() {
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+    el.placeholder = t(el.dataset.i18nPlaceholder);
+  });
+  document.getElementById('enable-label').title = t('enable');
+}
+
 function parseRatioInput(input) {
   const m = input.trim().match(/^(\d+(?:\.\d+)?)\s*[:x]\s*(\d+(?:\.\d+)?)$/i);
   if (!m) return null;
@@ -34,17 +46,20 @@ async function patchState(patch) {
   await refresh();
 }
 
-function formatRatio(ratio) {
-  return ratio ? ratio.toFixed(3) : 'Not detected';
+function formatSize(width, height) {
+  if (!width || !height) return t('notDetected');
+  return `${width}x${height} (${(width / height).toFixed(3)})`;
 }
 
 async function refresh() {
   const res = await sendToContent({ type: 'getState' });
   currentState = res?.state ?? null;
 
-  document.getElementById('monitor-ratio').textContent =
-    `${screen.width}x${screen.height} (${formatRatio(screen.width / screen.height)})`;
-  document.getElementById('video-ratio').textContent = formatRatio(res?.videoRatio);
+  document.getElementById('monitor-ratio').textContent = formatSize(screen.width, screen.height);
+  document.getElementById('video-ratio').textContent = formatSize(
+    res?.videoWidth,
+    res?.videoHeight
+  );
   document.getElementById('enabled').checked = !!currentState?.enabled;
 
   const scale =
@@ -96,7 +111,7 @@ document.getElementById('zoom-out').addEventListener('click', async () => {
 document.getElementById('custom-apply').addEventListener('click', () => {
   const parsed = parseRatioInput(document.getElementById('custom-input').value);
   if (!parsed) {
-    document.getElementById('custom-input').setCustomValidity('잘못된 형식');
+    document.getElementById('custom-input').setCustomValidity(t('invalidFormat'));
     document.getElementById('custom-input').reportValidity();
     return;
   }
@@ -112,5 +127,6 @@ document.getElementById('open-options').addEventListener('click', (e) => {
   chrome.runtime.openOptionsPage();
 });
 
+localize();
 renderPresets();
 refresh();

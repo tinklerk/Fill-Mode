@@ -126,7 +126,8 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
       const video = fmFindVideo();
       sendResponse({
         state: fmState,
-        videoRatio: video?.videoWidth ? video.videoWidth / video.videoHeight : null,
+        videoWidth: video?.videoWidth || null,
+        videoHeight: video?.videoHeight || null,
         appliedScale: video && fmState.enabled ? fmComputeScale(video) : null,
       });
       return; // sendResponse 사용

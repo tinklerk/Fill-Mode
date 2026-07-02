@@ -1,0 +1,89 @@
+{
+  "extName": {
+    "message": "Fill Mode"
+  },
+  "extDesc": {
+    "message": "去除视频黑边，支持自定义及竖屏（9:16）宽高比。"
+  },
+  "cmdIncreaseZoom": {
+    "message": "增大缩放 (+)"
+  },
+  "cmdDecreaseZoom": {
+    "message": "减小缩放 (-)"
+  },
+  "cmdCyclePreset": {
+    "message": "循环切换比例预设"
+  },
+  "cmdResetZoom": {
+    "message": "重置缩放 (1.00)"
+  },
+  "enable": {
+    "message": "启用"
+  },
+  "monitorLabel": {
+    "message": "显示器"
+  },
+  "videoLabel": {
+    "message": "视频"
+  },
+  "notDetected": {
+    "message": "未检测到"
+  },
+  "landscape": {
+    "message": "横向"
+  },
+  "portrait": {
+    "message": "纵向"
+  },
+  "customPlaceholder": {
+    "message": "W:H 或 WxH（例如 9:19.5）"
+  },
+  "apply": {
+    "message": "应用"
+  },
+  "invalidFormat": {
+    "message": "格式无效"
+  },
+  "reset": {
+    "message": "重置"
+  },
+  "options": {
+    "message": "设置"
+  },
+  "optionsTitle": {
+    "message": "Fill Mode 设置"
+  },
+  "persistence": {
+    "message": "持久缩放模式"
+  },
+  "persistOff": {
+    "message": "关闭"
+  },
+  "persistSession": {
+    "message": "会话"
+  },
+  "persistPermanent": {
+    "message": "永久"
+  },
+  "transitionSpeed": {
+    "message": "缩放过渡速度"
+  },
+  "ratioSource": {
+    "message": "显示器比例来源"
+  },
+  "ratioScreen": {
+    "message": "屏幕"
+  },
+  "ratioWindow": {
+    "message": "窗口"
+  },
+  "shortcutsNote": {
+    "message": "可在 chrome://extensions/shortcuts 修改全局快捷键"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "saved": {
+    "message": "已保存。"
+  }
+}

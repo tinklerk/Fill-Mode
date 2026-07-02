@@ -1,0 +1,89 @@
+{
+  "extName": {
+    "message": "Fill Mode"
+  },
+  "extDesc": {
+    "message": "Removes video black bars with custom & vertical (9:16) aspect ratio support."
+  },
+  "cmdIncreaseZoom": {
+    "message": "Increase zoom (+)"
+  },
+  "cmdDecreaseZoom": {
+    "message": "Decrease zoom (-)"
+  },
+  "cmdCyclePreset": {
+    "message": "Cycle through ratio presets"
+  },
+  "cmdResetZoom": {
+    "message": "Reset zoom to 1.00"
+  },
+  "enable": {
+    "message": "Enable"
+  },
+  "monitorLabel": {
+    "message": "Monitor"
+  },
+  "videoLabel": {
+    "message": "Video"
+  },
+  "notDetected": {
+    "message": "Not detected"
+  },
+  "landscape": {
+    "message": "Landscape"
+  },
+  "portrait": {
+    "message": "Portrait"
+  },
+  "customPlaceholder": {
+    "message": "W:H or WxH (e.g. 9:19.5)"
+  },
+  "apply": {
+    "message": "Apply"
+  },
+  "invalidFormat": {
+    "message": "Invalid format"
+  },
+  "reset": {
+    "message": "Reset"
+  },
+  "options": {
+    "message": "Settings"
+  },
+  "optionsTitle": {
+    "message": "Fill Mode Settings"
+  },
+  "persistence": {
+    "message": "Persistent zoom mode"
+  },
+  "persistOff": {
+    "message": "Off"
+  },
+  "persistSession": {
+    "message": "Session"
+  },
+  "persistPermanent": {
+    "message": "Permanent"
+  },
+  "transitionSpeed": {
+    "message": "Zoom transition speed"
+  },
+  "ratioSource": {
+    "message": "Monitor ratio source"
+  },
+  "ratioScreen": {
+    "message": "Screen"
+  },
+  "ratioWindow": {
+    "message": "Window"
+  },
+  "shortcutsNote": {
+    "message": "You can change global shortcuts at chrome://extensions/shortcuts"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "saved": {
+    "message": "Saved."
+  }
+}

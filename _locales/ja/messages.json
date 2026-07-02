@@ -1,0 +1,89 @@
+{
+  "extName": {
+    "message": "Fill Mode"
+  },
+  "extDesc": {
+    "message": "カスタム比率と縦（9:16）比率に対応した、動画の黒帯を除去する拡張機能。"
+  },
+  "cmdIncreaseZoom": {
+    "message": "ズームを拡大 (+)"
+  },
+  "cmdDecreaseZoom": {
+    "message": "ズームを縮小 (-)"
+  },
+  "cmdCyclePreset": {
+    "message": "比率プリセットを切り替え"
+  },
+  "cmdResetZoom": {
+    "message": "ズームをリセット (1.00)"
+  },
+  "enable": {
+    "message": "有効"
+  },
+  "monitorLabel": {
+    "message": "モニター"
+  },
+  "videoLabel": {
+    "message": "動画"
+  },
+  "notDetected": {
+    "message": "未検出"
+  },
+  "landscape": {
+    "message": "横"
+  },
+  "portrait": {
+    "message": "縦"
+  },
+  "customPlaceholder": {
+    "message": "W:H または WxH（例: 9:19.5）"
+  },
+  "apply": {
+    "message": "適用"
+  },
+  "invalidFormat": {
+    "message": "形式が正しくありません"
+  },
+  "reset": {
+    "message": "リセット"
+  },
+  "options": {
+    "message": "設定"
+  },
+  "optionsTitle": {
+    "message": "Fill Mode 設定"
+  },
+  "persistence": {
+    "message": "ズームの保持"
+  },
+  "persistOff": {
+    "message": "オフ"
+  },
+  "persistSession": {
+    "message": "セッション"
+  },
+  "persistPermanent": {
+    "message": "永続"
+  },
+  "transitionSpeed": {
+    "message": "ズームの切り替え速度"
+  },
+  "ratioSource": {
+    "message": "モニター比率の基準"
+  },
+  "ratioScreen": {
+    "message": "画面"
+  },
+  "ratioWindow": {
+    "message": "ウィンドウ"
+  },
+  "shortcutsNote": {
+    "message": "グローバルショートカットは chrome://extensions/shortcuts で変更できます"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "saved": {
+    "message": "保存しました。"
+  }
+}

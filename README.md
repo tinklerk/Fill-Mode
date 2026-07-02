@@ -49,6 +49,8 @@ video.fm-zoomed {
 ```text
 fill_mode/
 ├── manifest.json
+├── _locales/                      # 다국어(ko, en, ja, zh_CN, es, fr) 메시지
+│   └── <locale>/messages.json
 ├── src/
 │   ├── background/
 │   │   └── service-worker.js      # 단축키 커맨드 라우팅, 상태 브로드캐스트
@@ -62,7 +64,8 @@ fill_mode/
 │   │   └── popup.css
 │   └── options/
 │       ├── options.html           # 커스텀 프리셋 관리, 기본 동작 설정
-│       └── options.js
+│       ├── options.js
+│       └── options.css
 ├── icons/
 │   ├── icon16.png
 │   ├── icon48.png
@@ -77,9 +80,10 @@ fill_mode/
 ```json
 {
   "manifest_version": 3,
-  "name": "Fill Mode",
+  "name": "__MSG_extName__",
   "version": "1.0.0",
-  "description": "Removes video black bars with custom & vertical (9:16) aspect ratio support.",
+  "description": "__MSG_extDesc__",
+  "default_locale": "en",
   "permissions": ["storage", "activeTab"],
   "host_permissions": ["<all_urls>"],
   "background": {
@@ -100,16 +104,10 @@ fill_mode/
   },
   "options_page": "src/options/options.html",
   "commands": {
-    "increase-zoom": {
-      "suggested_key": { "mac": "Command+Up", "default": "Ctrl+Up" },
-      "description": "Increase zoom (+)"
-    },
-    "decrease-zoom": {
-      "suggested_key": { "mac": "Command+Down", "default": "Ctrl+Down" },
-      "description": "Decrease zoom (-)"
-    },
-    "cycle-preset": { "description": "Cycle through ratio presets" },
-    "reset-zoom": { "description": "Reset zoom to 1.00" }
+    "increase-zoom": { "description": "__MSG_cmdIncreaseZoom__" },
+    "decrease-zoom": { "description": "__MSG_cmdDecreaseZoom__" },
+    "cycle-preset": { "description": "__MSG_cmdCyclePreset__" },
+    "reset-zoom": { "description": "__MSG_cmdResetZoom__" }
   }
 }
 ```

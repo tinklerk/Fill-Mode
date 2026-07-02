@@ -1,0 +1,89 @@
+{
+  "extName": {
+    "message": "Fill Mode"
+  },
+  "extDesc": {
+    "message": "커스텀 및 세로(9:16) 비율을 지원하는 비디오 레터박스 제거 확장 프로그램"
+  },
+  "cmdIncreaseZoom": {
+    "message": "배율 증가 (+)"
+  },
+  "cmdDecreaseZoom": {
+    "message": "배율 감소 (-)"
+  },
+  "cmdCyclePreset": {
+    "message": "비율 프리셋 순환"
+  },
+  "cmdResetZoom": {
+    "message": "배율 초기화 (1.00)"
+  },
+  "enable": {
+    "message": "사용"
+  },
+  "monitorLabel": {
+    "message": "모니터"
+  },
+  "videoLabel": {
+    "message": "비디오"
+  },
+  "notDetected": {
+    "message": "감지 안 됨"
+  },
+  "landscape": {
+    "message": "가로"
+  },
+  "portrait": {
+    "message": "세로"
+  },
+  "customPlaceholder": {
+    "message": "W:H 또는 WxH (예: 9:19.5)"
+  },
+  "apply": {
+    "message": "적용"
+  },
+  "invalidFormat": {
+    "message": "잘못된 형식"
+  },
+  "reset": {
+    "message": "초기화"
+  },
+  "options": {
+    "message": "설정"
+  },
+  "optionsTitle": {
+    "message": "Fill Mode 설정"
+  },
+  "persistence": {
+    "message": "지속 줌 모드"
+  },
+  "persistOff": {
+    "message": "끄기"
+  },
+  "persistSession": {
+    "message": "세션"
+  },
+  "persistPermanent": {
+    "message": "영구"
+  },
+  "transitionSpeed": {
+    "message": "줌 전환 속도"
+  },
+  "ratioSource": {
+    "message": "모니터 비율 기준"
+  },
+  "ratioScreen": {
+    "message": "화면"
+  },
+  "ratioWindow": {
+    "message": "창"
+  },
+  "shortcutsNote": {
+    "message": "전역 단축키는 chrome://extensions/shortcuts 에서 변경할 수 있습니다"
+  },
+  "save": {
+    "message": "저장"
+  },
+  "saved": {
+    "message": "저장되었습니다."
+  }
+}

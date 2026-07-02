@@ -1,0 +1,89 @@
+{
+  "extName": {
+    "message": "Fill Mode"
+  },
+  "extDesc": {
+    "message": "Elimina las bandas negras del vídeo con proporciones personalizadas y verticales (9:16)."
+  },
+  "cmdIncreaseZoom": {
+    "message": "Aumentar zoom (+)"
+  },
+  "cmdDecreaseZoom": {
+    "message": "Reducir zoom (-)"
+  },
+  "cmdCyclePreset": {
+    "message": "Alternar preajustes de proporción"
+  },
+  "cmdResetZoom": {
+    "message": "Restablecer zoom (1.00)"
+  },
+  "enable": {
+    "message": "Activar"
+  },
+  "monitorLabel": {
+    "message": "Monitor"
+  },
+  "videoLabel": {
+    "message": "Vídeo"
+  },
+  "notDetected": {
+    "message": "No detectado"
+  },
+  "landscape": {
+    "message": "Horizontal"
+  },
+  "portrait": {
+    "message": "Vertical"
+  },
+  "customPlaceholder": {
+    "message": "W:H o WxH (ej. 9:19.5)"
+  },
+  "apply": {
+    "message": "Aplicar"
+  },
+  "invalidFormat": {
+    "message": "Formato no válido"
+  },
+  "reset": {
+    "message": "Restablecer"
+  },
+  "options": {
+    "message": "Ajustes"
+  },
+  "optionsTitle": {
+    "message": "Ajustes de Fill Mode"
+  },
+  "persistence": {
+    "message": "Modo de zoom persistente"
+  },
+  "persistOff": {
+    "message": "Desactivado"
+  },
+  "persistSession": {
+    "message": "Sesión"
+  },
+  "persistPermanent": {
+    "message": "Permanente"
+  },
+  "transitionSpeed": {
+    "message": "Velocidad de transición del zoom"
+  },
+  "ratioSource": {
+    "message": "Fuente de la proporción del monitor"
+  },
+  "ratioScreen": {
+    "message": "Pantalla"
+  },
+  "ratioWindow": {
+    "message": "Ventana"
+  },
+  "shortcutsNote": {
+    "message": "Puedes cambiar los atajos globales en chrome://extensions/shortcuts"
+  },
+  "save": {
+    "message": "Guardar"
+  },
+  "saved": {
+    "message": "Guardado."
+  }
+}

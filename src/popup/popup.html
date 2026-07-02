@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
   <meta charset="UTF-8" />
   <title>Fill Mode</title>
@@ -7,39 +7,55 @@
 </head>
 <body>
   <header>
-    <h1>Fill Mode</h1>
-    <label class="toggle">
+    <div class="brand">
+      <img src="/icons/icon48.png" alt="" width="22" height="22" />
+      <h1>Fill Mode</h1>
+    </div>
+    <label class="switch" id="enable-label" title="">
       <input type="checkbox" id="enabled" />
-      <span>On</span>
+      <span class="track"><span class="knob"></span></span>
     </label>
   </header>
 
-  <section class="info">
-    <div>Monitor: <span id="monitor-ratio">—</span></div>
-    <div>Video: <span id="video-ratio">Not detected</span></div>
+  <section class="card info">
+    <div class="info-row">
+      <span class="info-label" data-i18n="monitorLabel"></span>
+      <span class="info-value" id="monitor-ratio">—</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label" data-i18n="videoLabel"></span>
+      <span class="info-value" id="video-ratio">—</span>
+    </div>
   </section>
 
   <section class="stepper">
-    <button id="zoom-out">−</button>
+    <button id="zoom-out" class="step-btn" aria-label="-">−</button>
     <span id="scale-value">x1.00</span>
-    <button id="zoom-in">+</button>
+    <button id="zoom-in" class="step-btn" aria-label="+">+</button>
   </section>
 
   <section class="presets">
-    <h2>가로</h2>
+    <h2 data-i18n="landscape"></h2>
     <div class="preset-row" data-orientation="landscape"></div>
-    <h2>세로</h2>
+    <h2 data-i18n="portrait"></h2>
     <div class="preset-row" data-orientation="portrait"></div>
   </section>
 
   <section class="custom">
-    <input type="text" id="custom-input" placeholder="W:H 또는 WxH (예: 9:19.5)" />
-    <button id="custom-apply">적용</button>
+    <input type="text" id="custom-input" data-i18n-placeholder="customPlaceholder" />
+    <button id="custom-apply" class="primary" data-i18n="apply"></button>
   </section>
 
   <footer>
-    <button id="reset">Reset</button>
-    <a href="#" id="open-options">설정</a>
+    <button id="reset" class="ghost" data-i18n="reset"></button>
+    <a href="#" id="open-options">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+      <span data-i18n="options"></span>
+    </a>
   </footer>
 
   <script src="popup.js"></script>
