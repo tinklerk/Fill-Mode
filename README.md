@@ -86,7 +86,7 @@ fill_mode/
   "version": "2.0.0",
   "description": "__MSG_extDesc__",
   "default_locale": "en",
-  "permissions": ["storage", "activeTab"],
+  "permissions": ["storage"],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "src/background/service-worker.js"
