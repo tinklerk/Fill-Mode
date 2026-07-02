@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- 프로모션 타일 (440x280) -->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+
+    body {
+      width: 440px;
+      height: 280px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(360px 260px at 85% 10%, rgba(122, 91, 255, 0.35), transparent 70%),
+        radial-gradient(320px 240px at 12% 95%, rgba(91, 124, 255, 0.3), transparent 70%),
+        #14141a;
+      color: #f1f1f6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      width: 84px;
+      height: 84px;
+      border-radius: 21px;
+      box-shadow: 0 10px 34px rgba(91, 124, 255, 0.45);
+    }
+
+    h1 { font-size: 30px; letter-spacing: -0.01em; }
+
+    p { font-size: 14px; color: #8d8da1; }
+  </style>
+</head>
+<body>
+  <img src="../../icons/icon128.png" alt="" />
+  <h1>Fill Mode</h1>
+  <p>비디오 레터박스 제거 · 세로 비율 지원</p>
+</body>
+</html>
