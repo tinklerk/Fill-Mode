@@ -55,8 +55,9 @@ document.querySelectorAll('.key-input').forEach((input) => {
       input.blur();
       return;
     }
-    if (e.key.length !== 1 || e.key === ' ') return; // 문자·기호 키만 허용
-    const key = e.key.toLowerCase();
+    // 물리 키 기준으로 정규화 — 한글 자판 상태에서 눌러도 영문 키로 기록된다
+    const key = fmKeyFromEvent(e);
+    if (key.length !== 1 || key === ' ') return; // 문자·기호 키만 허용
     // 같은 조합 그룹(비 Shift 계열) 안에서 중복 방지
     const group =
       input.dataset.action === 'panReset'

@@ -52,6 +52,8 @@ fill_mode/
 ├── _locales/                      # 다국어(ko, en, ja, zh_CN, es, fr) 메시지
 │   └── <locale>/messages.json
 ├── src/
+│   ├── common/
+│   │   └── keys.js                # 물리 키(e.code) 정규화 — IME(한글 등) 대응
 │   ├── background/
 │   │   └── service-worker.js      # 단축키 커맨드 라우팅, 상태 브로드캐스트
 │   ├── content/

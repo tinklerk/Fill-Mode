@@ -216,7 +216,7 @@ document.addEventListener(
         fmApply();
         fmShowHud(`X ${fmState.panX}% · Y ${fmState.panY}%`);
         handled = true;
-      } else if (e.key.toLowerCase() === fmKeymap.panReset) {
+      } else if (fmKeyFromEvent(e) === fmKeymap.panReset) {
         fmState.panX = 0;
         fmState.panY = 0;
         fmSavePan();
@@ -225,7 +225,7 @@ document.addEventListener(
         handled = true;
       }
     } else {
-      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      const key = fmKeyFromEvent(e);
       if (key === fmKeymap.toggle) {
         fmState.enabled = !fmState.enabled;
         fmApply();
