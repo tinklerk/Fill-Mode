@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- 스토어 스크린샷 2 (1280x800): 전체화면 단축키 + HUD -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+
+    body {
+      width: 1280px;
+      height: 800px;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: #f1f1f6;
+      position: relative;
+      /* 전체화면 비디오 느낌의 장면 */
+      background:
+        radial-gradient(900px 500px at 75% 30%, rgba(255, 176, 116, 0.35), transparent 65%),
+        radial-gradient(700px 600px at 25% 80%, rgba(224, 103, 154, 0.28), transparent 65%),
+        linear-gradient(160deg, #2a2140 0%, #1a1430 45%, #0e0b1c 100%);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 은은한 비네트 */
+    .vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(1100px 700px at 50% 45%, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+    }
+
+    /* HUD 토스트 (실제 확장과 동일한 형태) */
+    .hud {
+      position: absolute;
+      top: 64px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 24px;
+      border-radius: 999px;
+      background: rgba(20, 20, 26, 0.85);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .headline {
+      position: absolute;
+      left: 88px;
+      top: 200px;
+      max-width: 560px;
+    }
+
+    .headline .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .headline .brand img { width: 28px; height: 28px; border-radius: 8px; }
+
+    .headline h1 {
+      font-size: 46px;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+      margin-bottom: 14px;
+    }
+
+    .headline p { font-size: 18px; color: rgba(241, 241, 246, 0.75); }
+
+    /* 단축키 패널 */
+    .keys {
+      position: absolute;
+      right: 88px;
+      bottom: 88px;
+      width: 380px;
+      padding: 22px 26px;
+      border-radius: 18px;
+      background: rgba(18, 18, 24, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      backdrop-filter: blur(6px);
+    }
+
+    .keys h2 {
+      font-size: 12px;
+      font-weight: 600;
+      color: #8d8da1;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin-bottom: 12px;
+    }
+
+    .key-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 14.5px;
+    }
+
+    .key-row + .key-row { border-top: 1px solid rgba(255, 255, 255, 0.07); }
+
+    kbd {
+      padding: 3px 10px;
+      border-radius: 7px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 12.5px;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="vignette"></div>
+
+  <div class="hud">9:16 · ×3.16</div>
+
+  <div class="headline">
+    <div class="brand"><img src="../../icons/icon128.png" alt="" /> Fill Mode</div>
+    <h1>Keyboard control,<br />even in fullscreen</h1>
+    <p>Actions appear as an on-screen HUD, and every key is remappable</p>
+  </div>
+
+  <div class="keys">
+    <h2>Default shortcuts</h2>
+    <div class="key-row"><span>Toggle on/off</span><kbd>Z</kbd></div>
+    <div class="key-row"><span>Cycle ratio presets</span><kbd>X</kbd></div>
+    <div class="key-row"><span>Decrease / increase zoom</span><span><kbd>[</kbd> <kbd>]</kbd></span></div>
+    <div class="key-row"><span>Pan</span><kbd>Shift + ← ↑ ↓ →</kbd></div>
+    <div class="key-row"><span>Reset position</span><kbd>Shift + X</kbd></div>
+  </div>
+</body>
+</html>

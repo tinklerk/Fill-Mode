@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- 스토어 스크린샷용 팝업 정적 복제본 — 실제 popup.css를 그대로 사용 -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../../src/popup/popup.css" />
+  <style>
+    body { border-radius: 14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="../../icons/icon48.png" alt="" width="22" height="22" />
+      <h1>Fill Mode</h1>
+    </div>
+    <label class="switch">
+      <input type="checkbox" checked />
+      <span class="track"><span class="knob"></span></span>
+    </label>
+  </header>
+
+  <section class="card info">
+    <div class="info-row">
+      <span class="info-label">Monitor</span>
+      <span class="info-value">1080x1920 (9:16)</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Video</span>
+      <span class="info-value">3840x2160 (16:9)</span>
+    </div>
+  </section>
+
+  <section class="stepper">
+    <button class="step-btn">−</button>
+    <span id="scale-value">x3.16</span>
+    <button class="step-btn">+</button>
+  </section>
+
+  <section class="presets">
+    <h2>Landscape</h2>
+    <div class="preset-row">
+      <button>16:10</button><button>16:9</button><button>18:9</button>
+      <button>21:9</button><button>32:9</button>
+    </div>
+    <h2>Portrait</h2>
+    <div class="preset-row">
+      <button class="active">9:16</button><button>9:18</button><button>9:21</button>
+      <button>10:16</button><button>3:4</button>
+    </div>
+  </section>
+
+  <section class="custom">
+    <input type="text" placeholder="W:H or WxH (e.g. 9:19.5)" />
+    <button class="primary">Apply</button>
+  </section>
+
+  <section class="card pan">
+    <h2>Position</h2>
+    <div class="pan-body">
+      <div class="dpad">
+        <button class="dpad-btn dpad-up">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
+        </button>
+        <button class="dpad-btn dpad-left">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <button class="dpad-btn dpad-center">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"
+            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="1 4 1 10 7 10"/>
+            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+          </svg>
+        </button>
+        <button class="dpad-btn dpad-right">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <button class="dpad-btn dpad-down">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="pan-values">
+        <label><span class="pan-axis">X</span><input type="number" class="pan-input" value="12" /><span class="pan-unit">%</span></label>
+        <label><span class="pan-axis">Y</span><input type="number" class="pan-input" value="0" /><span class="pan-unit">%</span></label>
+      </div>
+    </div>
+  </section>
+
+  <details class="card shortcuts">
+    <summary>Shortcuts</summary>
+  </details>
+
+  <footer>
+    <button class="ghost">Reset</button>
+    <a href="#">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+      <span>Settings</span>
+    </a>
+  </footer>
+</body>
+</html>
