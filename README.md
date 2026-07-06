@@ -1,5 +1,6 @@
 # Fill Mode — 커스텀 비율 지원 비디오 줌 크롬 확장
 
+**Chrome Web Store**: <https://chromewebstore.google.com/detail/fill-mode/iiogaanaefdankalcaaecjkhglgmalen> ·
 **소개 페이지**: <https://tinklerk.github.io/Fill-Mode/> ·
 **개인정보처리방침**: <https://tinklerk.github.io/Fill-Mode/privacy.html>
 
